@@ -110,7 +110,6 @@ public class GameOfCraps {
 		// Keep on rolling dice until a win or loss happens
 		while (!(dice.getState() instanceof Win) && !(dice.getState() instanceof Loss)) {
 			dice.rollDice();
-			break;
 		}
 	}
 

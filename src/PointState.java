@@ -23,14 +23,18 @@ public class PointState extends State {
 // 7 Loss ("seven out")
 // match of previous roll Win ("hits the points")
 // any other, roll again
-// ------------------------------------------------------------------------ 
-    	
+// ------------------------------------------------------------------------
     	//if the current roll equals the result of the previous roll, win
-        if (points_to_match == getContext().getCurrentRoll()) {
+        if (getContext().getCurrentRoll() == points_to_match) {
             getContext().setState(new Win(this));
+            System.out.print("(Win)");
         //If the current roll equals 7, loss   
         } else if (getContext().getCurrentRoll() == 7) {
             getContext().setState(new Loss(this));
+            System.out.println("(Craps)");
+        }
+          else{
+            getContext().rollDice();
         }
     }
 }

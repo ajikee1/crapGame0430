@@ -2,7 +2,7 @@
 //4/30/2019
 
 public class ComingOutState extends State {
-	
+
     public ComingOutState(Dice dice) {
         super(dice);
     }
@@ -24,16 +24,16 @@ public class ComingOutState extends State {
 // ------------------------------------------------------------------------
     	//If a 2 3, or 12 is rolled, loss
         if (getContext().getCurrentRoll() == 2 || getContext().getCurrentRoll() == 3 || getContext().getCurrentRoll() == 12) {
-            System.out.print("(Craps)");
         	getContext().setState(new Loss(this));
+            System.out.println("(Craps)");
         } else if (getContext().getCurrentRoll() == 7 || getContext().getCurrentRoll() == 11) {
         //If a 7 or 11 is rolled, win
-            System.out.print("(Win)");
         	getContext().setState(new Win(this));
+            System.out.println("(Win)");
         } else {
             //If the number does not match the above, transition to the Point State
-            System.out.print("(Point)");
             getContext().setState(new PointState(this));
+            System.out.println("(Point)");
         }
 
     }
